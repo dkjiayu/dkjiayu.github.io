@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="内存空间地址,">
 
 
 
@@ -79,16 +79,21 @@
 
 
 
-<meta name="description" content="丁加宇">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎来到Dk的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一个int需要占4个字节每个字节都有一个地址而且地址都是连续的比如0x000000110x000000120x000000130x00000014这就是连续的4个字节，每个字节对应一个地址，相邻地址差1关于内存地址和内存空间的理解。   1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。">
+<meta name="keywords" content="内存空间地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于内存地址和内存空间的理解">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/内存/index.html">
 <meta property="og:site_name" content="欢迎来到Dk的博客">
-<meta property="og:description" content="丁加宇">
+<meta property="og:description" content="一个int需要占4个字节每个字节都有一个地址而且地址都是连续的比如0x000000110x000000120x000000130x00000014这就是连续的4个字节，每个字节对应一个地址，相邻地址差1关于内存地址和内存空间的理解。   1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/310297/201502/092208084011508.png">
+<meta property="og:updated_time" content="2018-11-01T14:17:49.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="欢迎来到Dk的博客">
-<meta name="twitter:description" content="丁加宇">
+<meta name="twitter:title" content="关于内存地址和内存空间的理解">
+<meta name="twitter:description" content="一个int需要占4个字节每个字节都有一个地址而且地址都是连续的比如0x000000110x000000120x000000130x00000014这就是连续的4个字节，每个字节对应一个地址，相邻地址差1关于内存地址和内存空间的理解。   1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。">
+<meta name="twitter:image" content="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png">
 
 
 
@@ -118,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/内存/">
 
 
 
 
 
-  <title>欢迎来到Dk的博客</title>
+  <title>关于内存地址和内存空间的理解 | 欢迎来到Dk的博客</title>
   
 
 
@@ -143,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -267,9 +271,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -299,9 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/01/内存/" itemprop="url">关于内存地址和内存空间的理解</a></h1>
+          <h1 class="post-title" itemprop="name headline">关于内存地址和内存空间的理解</h1>
         
 
         <div class="post-meta">
@@ -373,17 +375,13 @@
       
 
       
-        
-          
-            <p>一个int需要占4个字节<br>每个字节都有一个地址<br>而且地址都是连续的<br>比如<br>0x00000011<br>0x00000012<br>0x00000013<br>0x00000014<br>这就是连续的4个字节，每个字节对应一个地址，相邻地址差1<br>关于内存地址和内存空间的理解。  </p>
+        <p>一个int需要占4个字节<br>每个字节都有一个地址<br>而且地址都是连续的<br>比如<br>0x00000011<br>0x00000012<br>0x00000013<br>0x00000014<br>这就是连续的4个字节，每个字节对应一个地址，相邻地址差1<br>关于内存地址和内存空间的理解。  </p>
 <p>1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。都是表示的编号为1的内存地址，为什么一个是4位16进制表示，另外一个又是用8位16进制表示呢？</p>
 <p>首先，必须要知道内存地址只是一个编号，代表一个内存空间。那么这个空间是多大呢？原来在计算机中存储器的容量是以字节为基本单位的。也就是说一个内存地址代表一个字节（8bit）的存储空间。</p>
 <p>所以说用4位16进制表示的内存地址和用8位16进制表示的内存地址，其实都是代表一个8bit的存储空间而已：</p>
 <p><img src="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png" alt=""></p>
 <p><img src="https://images0.cnblogs.com/blog/310297/201502/092208084011508.png" alt=""></p>
 
-          
-        
       
     </div>
     
@@ -398,298 +396,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/变量的存储类型/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="加宇哇">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到Dk的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/01/变量的存储类型/" itemprop="url">变量的存储空间</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T22:15:35+08:00">
-                2018-11-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/变量/" itemprop="url" rel="index">
-                    <span itemprop="name">变量</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/内存空间地址/" rel="tag"># 内存空间地址</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天又了解了变量的储存类型<br>大致可分为静态存储区和动态存储区<br>全局变量和静态局部变量的初始值为0<br>而普通局部变量初始值为随机数<br>动态存储区又分为：栈区和堆区<br>栈区地址是由高到低<br>堆区地址是由低到高<br>动态存储区和静态存储区之间是不连接的！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/测试/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="加宇哇">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到Dk的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/31/测试/" itemprop="url">welcome to xiaoding's blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T08:25:59+08:00">
-                2018-10-31
-              </time>
+              <a href="/2018/11/01/变量的存储类型/" rel="next" title="变量的存储空间">
+                <i class="fa fa-chevron-left"></i> 变量的存储空间
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/哦98k/" itemprop="url" rel="index">
-                    <span itemprop="name">哦98k</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>种豆南山下，草盛豆苗稀！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -699,10 +435,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -710,6 +447,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -933,6 +674,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
