@@ -282,6 +282,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/C语言指针/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="加宇哇">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到Dk的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/09/C语言指针/" itemprop="url">C语言之指针</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-09T19:56:27+08:00">
+                2018-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/C语言/" itemprop="url" rel="index">
+                    <span itemprop="name">C语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>指针是一个变量，指向一个地址，指向数据的类型与定义时有关  </p>
+<blockquote>
+<p>基类型 <em>名称<br>int </em>p;     代表指针变量p指向的将会是一个整型数据—指针就是一个地址<br>当然指针变量本身也有一个地址，这将涉及到后面的二级指针，指针数组<br>注意：定义指针变量时  <em>号是固定格式。离开定义指针变量时  </em>号就代表取地址运算符  </p>
+</blockquote>
+<p>指针与数组   </p>
+<p>一维数组名称默认代表着第一个元素的地址，也就是该一维数组的起始地址。<br>同时要注意传值与传地址的区别：定义一个函数：传值不能直接对根本数据修改，而传地址是直接对根本数据进行修改。<br><img src="http://imgsrc.baidu.com/forum/pic/item/dd82f68da97739129cf4add5f5198618377ae231.jpg" alt="那么多文字应该很无聊">  </p>
+<p>二维数组与地址的关系又复杂了一点。  </p>
+<blockquote>
+<p>二维数组可以看成“一个一维数组”。每一行代表一个元素，于是出现了行地址与列地址<br>由一维数组可知数组名称代表首元素也即该数组的起始地址。二维数组的名称也就是“该一维数组的首元素的地址”，该特殊一维数组的首元素也就是第一行，所以二维数组的名称代表首行地址。<br>假如一个二维数组为a[3][3]，那么该二维数组可以看成一个二维数组a[3]={a[0],a[1],a[2]}而a[0]={a[0][0],a[0][1],a[0][2]},其他也一样。所以a代表a[0]的地址，虽然a和a[0]地址相同但是+1后意义不一样。<br>a[0]代表着行地址，a[0][0]代表着列地址。a+1 代表着行数加1  相当于a[1]; 而a[0]+1 代表着列数加1，相当于a[0][1]的地址</p>
+</blockquote>
+<p>理清二维数组是个什么东东之后再看指针 </p>
+<p>#利用数组名读取    </p>
+<blockquote>
+<p>行指针与列指针的互相转换。<br>先看一个例子：int a=5, <em> b=&a;  指针b指向a的地址，  </em> b即a中的内容5，  &amp;a即取a的地址，就会得到指针b。<br>这相当于一个来往。<em> b得到a,&amp;a又可以得到b；<br>同样在二级指针这里，a指向a[0],</em> a得到a[0],&amp;a[0]又得到a。这样就出现了行列地址的互相转换。<br>所以有<em> (a+i)=a[i]    a+i 代表行地址（i每+1就会增加一行）     a[i]代表列地址（i每+1就会移动一列）<br>若要利用指针读取二维数组元素，首先对数组进行定位，由行切进列，就得到一个元素的地址。例如a[m][n],<br>先定义到行，可以a+m,进入列首 </em> (a+m)，进一步确定<em> (a+m)+n，然后取值</em> （<em> (a+m)+n)<br>当然简单的就是</em> (a[m]+n)  </p>
+</blockquote>
+<p>#利用一级指针读取</p>
+<blockquote>
+<p>所谓利用一级指针，就是把指针精确到元素，然后进行遍历全数组<br>例如int <em> b=&amp;a[0][0] ,b+1则指向a[0][1], a[0][1]==</em> (b+1)<br>由此也联系到下标法，a[i* m+n] 其中i是第几行，m是一行的元素个数，n是第n列。由此容易理解下标法是利用一级指针逐个元素进行读取的。</p>
+</blockquote>
+<p>#利用行指针进行读取</p>
+<blockquote>
+<p>这个需要注意的就是行指针变量的定义，用法也就是用法一。只不过找个指针变量来代替二维数组名字<br>int (<em> b)[3]   类型标识符 (</em> 指针变量名) [二维数组的列数]<br>定义行指针变量的时候之所以用括号是为了和 下面指针数组进行区分。</p>
+</blockquote>
+<hr>
+<p>#指针数组</p>
+<blockquote>
+<p>先来定义一波： 类型标识符 <em> 指针变量名[数组的长度]<br>首先要明白指针数组元素的是指针<br>对于定义格式的简单理解：可以和指针的定义相结合理解，</em> 号在此处声明这是个指针数组。</p>
+</blockquote>
+<p>#二级指针</p>
+<blockquote>
+<p>定义： 类型标识符 <em> </em> 指针变量名<br>指向指针的指针<br>int a=5,<em> b=&amp;a, </em> * c=&b;<br>b指向a,存储的是a的地址<br>c指向指针b，存储的是指针b的地址  </p>
+<ul>
+<li>c 得到b，<em> </em> c得到a。</li>
+</ul>
+</blockquote>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/03/python/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -545,8 +722,8 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
 <p>1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。都是表示的编号为1的内存地址，为什么一个是4位16进制表示，另外一个又是用8位16进制表示呢？</p>
 <p>首先，必须要知道内存地址只是一个编号，代表一个内存空间。那么这个空间是多大呢？原来在计算机中存储器的容量是以字节为基本单位的。也就是说一个内存地址代表一个字节（8bit）的存储空间。</p>
 <p>所以说用4位16进制表示的内存地址和用8位16进制表示的内存地址，其实都是代表一个8bit的存储空间而已：</p>
-<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png" alt=""></p>
-<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208084011508.png" alt=""></p>
+<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png" alt="1"></p>
+<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208084011508.png" alt="2"></p>
 
           
         
@@ -772,7 +949,7 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -783,7 +960,7 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -794,7 +971,7 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
