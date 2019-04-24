@@ -352,41 +352,15 @@
       
         
           
-            <p>#声明：星号 在此处显示✳<br>指针是一个变量，指向一个地址，指向数据的类型与定义时有关  </p>
-<blockquote>
-<p>基类型✳名称<br>int✳p;     代表指针变量p指向的将会是一个整型数据—指针就是一个地址<br>当然指针变量本身也有一个地址，这将涉及到后面的二级指针，指针数组<br>注意：定义指针变量时 ✳号是固定格式。离开定义指针变量时 ✳号就代表取地址运算符  </p>
-</blockquote>
-<p>指针与数组   </p>
-<p>一维数组名称默认代表着第一个元素的地址，也就是该一维数组的起始地址。<br>同时要注意传值与传地址的区别：定义一个函数：传值不能直接对根本数据修改，而传地址是直接对根本数据进行修改。<br><img src="http://imgsrc.baidu.com/forum/pic/item/dd82f68da97739129cf4add5f5198618377ae231.jpg" alt="那么多文字应该很无聊">  </p>
-<p>二维数组与地址的关系又复杂了一点。  </p>
-<blockquote>
-<p>二维数组可以看成“一个一维数组”。每一行代表一个元素，于是出现了行地址与列地址<br>由一维数组可知数组名称代表首元素也即该数组的起始地址。二维数组的名称也就是“该一维数组的首元素的地址”，该特殊一维数组的首元素也就是第一行，所以二维数组的名称代表首行地址。<br>假如一个二维数组为a[3][3]，那么该二维数组可以看成一个二维数组a[3]={a[0],a[1],a[2]}而a[0]={a[0][0],a[0][1],a[0][2]},其他也一样。所以a代表a[0]的地址，虽然a和a[0]地址相同但是+1后意义不一样。<br>a[0]代表着行地址，a[0][0]代表着列地址。a+1 代表着行数加1  相当于a[1]; 而a[0]+1 代表着列数加1，相当于a[0][1]的地址</p>
-</blockquote>
-<p>理清二维数组是个什么东东之后再看指针 </p>
-<p>#利用数组名读取    </p>
-<blockquote>
-<p>行指针与列指针的互相转换。<br>先看一个例子：int a=5,✳b=&a;  指针b指向a的地址， ✳b即a中的内容5，  &amp;a即取a的地址，就会得到指针b。<br>这相当于一个来往。✳b得到a,&amp;a又可以得到b；<br>同样在二级指针这里，a指向a[0],✳a得到a[0],&amp;a[0]又得到a。这样就出现了行列地址的互相转换。<br>所以有✳(a+i)=a[i]    a+i 代表行地址（i每+1就会增加一行）     a[i]代表列地址（i每+1就会移动一列）<br>若要利用指针读取二维数组元素，首先对数组进行定位，由行切进列，就得到一个元素的地址。例如a[m][n],<br>先定义到行，可以a+m,进入列首✳(a+m)，进一步确定✳(a+m)+n，然后取值✳（✳(a+m)+n)<br>当然简单的就是✳(a[m]+n)  </p>
-</blockquote>
-<p>#利用一级指针读取</p>
-<blockquote>
-<p>所谓利用一级指针，就是把指针精确到元素，然后进行遍历全数组<br>例如int✳b=&amp;a[0][0] ,b+1则指向a[0][1], a[0][1]==✳(b+1)<br>由此也联系到下标法，a[i✳m+n] 其中i是第几行，m是一行的元素个数，n是第n列。由此容易理解下标法是利用一级指针逐个元素进行读取的。</p>
-</blockquote>
-<p>#利用行指针进行读取</p>
-<blockquote>
-<p>这个需要注意的就是行指针变量的定义，用法也就是用法一。只不过找个指针变量来代替二维数组名字<br>int (✳b)[3]   类型标识符 (✳指针变量名) [二维数组的列数]<br>定义行指针变量的时候之所以用括号是为了和 下面指针数组进行区分。</p>
-</blockquote>
-<hr>
-<p>#指针数组</p>
-<blockquote>
-<p>先来定义一波： 类型标识符✳指针变量名[数组的长度]<br>首先要明白指针数组元素的是指针<br>对于定义格式的简单理解：可以和指针的定义相结合理解，✳号在此处声明这是个指针数组。</p>
-</blockquote>
-<p>#二级指针</p>
-<blockquote>
-<p>定义： 类型标识符✳✳指针变量名<br>指向指针的指针<br>int a=5,✳b=&amp;a,✳✳c=&b;<br>b指向a,存储的是a的地址<br>c指向指针b，存储的是指针b的地址<br>✳c 得到b，✳✳c得到a。</p>
-</blockquote>
-<hr>
-
-          
+          #声明：星号 在此处
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/09/C语言指针/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -526,33 +500,15 @@
       
         
           
-            <p>C没学完的我，又想试试python，说实话其实大多数编程语言大都相通，但是仍有很大不同<br>首先在py中语句不用以分号结束(;)<br>①然后就是今天的重点了：  </p>
-<pre><code>tip = input(&quot;请输入一个整数&quot;)#假定输入的是100  
-tip2 = tip*2  
-</code></pre><blockquote>
-<p>请问如果在Python输出tip2的值会是多少呢？<br>如果你认为输出的是：200那就错了<br>在python中会输出100100，连续输出两个tip的值，如果是tip*3，那将会输出100100100  </p>
-</blockquote>
-<pre><code>tip = int(input(&quot;请输入一个整数&quot;))#假定输入的是100
-tip2 = tip*2
-</code></pre><blockquote>
-<p>如果此时再进行输出tip2的值，那么就会恢复正常输出200<br>应注意要进行强制转换成整数型才能进一步运算</p>
-</blockquote>
-<p>②现在再进行讨论输出所遇到的坑  </p>
-<pre><code>在上面的基础上进行添加输出的语句  
-print(&quot;你输入的整数为：&quot;,tip2)
-</code></pre><blockquote>
-<p>上面是第一种输出方式</p>
-</blockquote>
-<pre><code>print(&quot;你输入的整数为：&quot;+str(tip2))
-</code></pre><blockquote>
-<p>这是第二种输出方式，str()是将数值变成字符串的函数</p>
-</blockquote>
-<p>通过上面的实验自己能感觉到 + 和str一起用<br>也可以通过和C中差不多的方式进行引用变量的值  </p>
-<p>3：如果想在同一条输出语句中输出多条内容可以用逗号或者加号隔开，当然用法就是上面的那样！</p>
-<pre><code>print(&quot;你输入的整数为：&quot;,tip2,&quot;第二条输出语句&quot;)
-print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;)
-</code></pre>
-          
+          C没学完的我，又想试
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/03/python/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -692,14 +648,15 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
       
         
           
-            <p>一个int需要占4个字节<br>每个字节都有一个地址<br>而且地址都是连续的<br>比如<br>0x00000011<br>0x00000012<br>0x00000013<br>0x00000014<br>这就是连续的4个字节，每个字节对应一个地址，相邻地址差1<br>关于内存地址和内存空间的理解。  </p>
-<p>1.内存地址用4位16进制和8位16进制表示的区别。例如经常可以看到某些书籍上写的内存地址0x0001，在另外一些书籍上写的内存地址又变成了0x00000001。都是表示的编号为1的内存地址，为什么一个是4位16进制表示，另外一个又是用8位16进制表示呢？</p>
-<p>首先，必须要知道内存地址只是一个编号，代表一个内存空间。那么这个空间是多大呢？原来在计算机中存储器的容量是以字节为基本单位的。也就是说一个内存地址代表一个字节（8bit）的存储空间。</p>
-<p>所以说用4位16进制表示的内存地址和用8位16进制表示的内存地址，其实都是代表一个8bit的存储空间而已：</p>
-<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208117926406.png" alt="1"></p>
-<p><img src="https://images0.cnblogs.com/blog/310297/201502/092208084011508.png" alt="2"></p>
-
-          
+          一个int需要占4个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/01/内存/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -839,9 +796,15 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
       
         
           
-            <p>今天又了解了变量的储存类型<br>大致可分为静态存储区和动态存储区<br>全局变量和静态局部变量的初始值为0<br>而普通局部变量初始值为随机数<br>动态存储区又分为：栈区和堆区<br>栈区地址是由高到低<br>堆区地址是由低到高<br>动态存储区和静态存储区之间是不连接的！</p>
-
-          
+          今天又了解了变量的储
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/01/变量的存储类型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -962,6 +925,24 @@ print(&quot;你输入的整数为：&quot;+str(tip2)+&quot;第二条语句&quot;
                     <a href="https://user.qzone.qq.com/1349227212/infocenter" target="_blank" title="QQZone">
                       
                         <i class="fa fa-fw fa-globe"></i>QQZone</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://zihu4n.cn/" target="_blank" title="zihuan">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zihuan</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://120.79.211.91/" target="_blank" title="人人人">
+                      
+                        <i class="fa fa-fw fa-globe"></i>人人人</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://yulige.top/" target="_blank" title="ylg">
+                      
+                        <i class="fa fa-fw fa-globe"></i>ylg</a>
                   </span>
                 
             </div>
